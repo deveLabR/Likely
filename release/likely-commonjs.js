@@ -826,7 +826,10 @@ var LikelyButton = function () {
         value: function initCounter() {
             var options = this.options;
 
-            if (options.counters && options.counterNumber) {
+            if (!options.counters) {
+                return;
+            }
+            if (options.counterNumber) {
                 this.updateCounter(options.counterNumber);
             } else if (options.counterUrl) {
                 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__fetch__["a" /* default */])(this.service, options.url, options)(this.updateCounter.bind(this));
@@ -1343,6 +1346,7 @@ var Likely = function () {
                 this.timeout = setTimeout(this.ready.bind(this), this.options.timeout);
             } else {
                 this.appear();
+                this.ready();
             }
         }
 
@@ -1422,11 +1426,8 @@ var Likely = function () {
     }, {
         key: 'ready',
         value: function ready() {
-            if (this.timeout) {
-                clearTimeout(this.timeout);
-
-                this.container.classList.add(__WEBPACK_IMPORTED_MODULE_1__config__["default"].name + '_ready');
-            }
+            clearTimeout(this.timeout);
+            this.container.classList.add(__WEBPACK_IMPORTED_MODULE_1__config__["default"].name + '_ready');
         }
     }]);
 
