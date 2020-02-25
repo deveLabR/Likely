@@ -119,6 +119,8 @@ These options should be specified on the `div` with the `likely` class.
 
 * `data-title` – Page title
 
+* `data-counters` – pass an empty string to disable counters (enabled by default)
+
 ```html
 <div class="likely" data-url="https://github.com/ilyabirman/Likely">
     <!-- ... -->
